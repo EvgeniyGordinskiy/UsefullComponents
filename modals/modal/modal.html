@@ -1,0 +1,31 @@
+<transition name="modal" v-if="statusModal">
+  <div class="modal-mask">
+    <div class="modal-wrapper" @click.self="onClose">
+      <div class="modal-container" :class="[classProp]">
+        <div class="modal-body" v-if="modalContent.body > 0 || modalContent.header">
+          <slot name="body">
+            <h3>{{modalContent.header}}</h3>
+            <br>
+            <template v-if="preparedContent.if_email_verified">
+              Your email has been confirmed! You can now login with your credentials.
+            </template>
+            <template v-if="preparedContent.reset_password">
+              <div class="resetPasswordForm">
+              <formv
+                      :save="sendResetPassword"
+                      :form="form"
+                      btn-text="Send"
+                      translation="form"
+              >
+              </formv>
+              </div>
+            </template>
+            <template v-else>
+              {{getContent}}
+            </template>
+          </slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>

@@ -1,0 +1,19 @@
+<transition name="modal" v-if="active">
+  <div class="modal-mask">
+    <div class="modal-wrapper" @click.self="onClose()">
+      <div class="modal-container verificationModalContainer">
+        <a class="closeModal" @click="onClose()">x</a>
+        <div class="modal-header"> <p class="formTitleVerifyModal">{{ $t('form.verifyModalTitle') }}</p></div>
+        <div class="modal-body">
+          <formv
+                  :save="save"
+                  :form.sync="form"
+                  btn-text="Save"
+                  translation="form"
+          >
+          </formv>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>

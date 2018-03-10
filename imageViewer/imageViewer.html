@@ -1,0 +1,17 @@
+<transition name="modal " v-if="imageViewerStatus">
+  <div class="modal-mask imageViewer">
+    <div class="modal-wrapper" @click="onClose">
+      <div class="modal-container" :class="[classProp]">
+        <div class="modal-body">
+          <el-carousel arrow="always" :autoplay="false" :initial-index="Number(imageViewerActiveItem)" @change="changed">
+            <el-carousel-item v-for="(img,i) in imageViewerContent" v-if="img" :key="i" >
+              <!--<div class="imageInTheCarousel" :style="{ backgroundImage: 'url(\'' + img + '\')' }">-->
+              <!--</div>-->
+              <img :src="img">
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>

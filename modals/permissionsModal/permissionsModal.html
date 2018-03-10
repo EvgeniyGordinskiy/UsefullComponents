@@ -1,0 +1,14 @@
+<transition name="modal" v-if="permissionsModalState">
+  <div class="modal-mask">
+    <div class="modal-wrapper" @click="onClose">
+      <div class="modal-container ">
+        <div class="modal-body">
+          <slot name="body">
+            <h3>Permissions denied.</h3>
+            You need to verify your account before you can access this section.
+          </slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>
